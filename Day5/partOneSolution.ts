@@ -26,10 +26,12 @@ rl.on('line', (line: string) => {
     
 
   if (parseRange) {
+
     let [start, end] = line.split('-').map(rangeElement => Number(rangeElement))
     ranges.push({ start, end });
+
   } else {
-    console.log(`considering ${line} as ingredient`)
+
     let ingredientID = Number(line);
     for (const range of ranges ) {
       if (ingredientID >= range.start && ingredientID <= range.end) {
@@ -37,6 +39,7 @@ rl.on('line', (line: string) => {
         break;
       }
     }
+    
   }
 
 });
